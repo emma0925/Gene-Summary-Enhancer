@@ -55,7 +55,8 @@ python3 clean_raw.py
 ```
 The cleaned gene_id list will be in the output_file_path that you modified. If you didn't miodify it, it will be in the current directory and name as "test_raw.txt".
 
-### 2. Automated Data Extraction:** Utilizes Connectome endpoints to automatically retrieve detailed notes and publication information for specified genes that is suitable for compute canada environment.
+### 2. Automated Data Extraction:
+Utilizes Connectome endpoints to automatically retrieve detailed notes and publication information for specified genes that is suitable for compute canada environment.
 
 #### Process Overview
 
