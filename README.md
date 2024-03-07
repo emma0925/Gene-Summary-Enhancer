@@ -80,13 +80,13 @@ To initiate the Automated Data Extraction process, follow these steps:
 
 2. **Adjustions:** the batch size, job email recipient, output_directory
 
-    In line 29 of the `submit_all_batch.sh`, change the email address for getting the job status(**Highly Recommended**)
+    In line 29 of the `submit_all_batch.sh`, change the email address for getting the job status (**Highly Recommended**)
     ```
     echo "#SBATCH --mail-user=<your_email>" >> "$sbatch_file" # Replace <your_email>
     ```
     You can remove this line if you don't want to get email of the job status.
 
-    Below are **optiaonal:**
+    **Below are optiaonal:**
    
     If you want to change the batch size, it is in line 6 of the `submit_all_batch.sh`
     ```
