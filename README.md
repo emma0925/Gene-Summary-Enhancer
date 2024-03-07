@@ -22,7 +22,6 @@ pip install -r requirements.txt
 ```
 ## Prerequisites  (Draft)
 
-List the software requirements and any other initial setup steps.
 
 ## Features
 
