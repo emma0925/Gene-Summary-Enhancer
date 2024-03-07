@@ -113,8 +113,5 @@ To initiate the Automated Data Extraction process, follow these steps:
 
 3. **Monitor the Process:** Once submitted, the jobs will run independently on Compute Canada. The script outputs and data retrieval status can be monitored through Compute Canada's job management tools.
 
-4. **Data Collection:** Upon completion, the extracted data will be available in the specified output directory(default: ./outputs), organized by batch, and ready for further analysis or processing.
-
-This streamlined approach to Automated Data Extraction ensures that we can handle large datasets with efficiency, making it a vital step in making genetic research data more accessible and usable for applications like GAIA.
-
+4. **Data Collection:** Upon completion, the extracted data will be available in the specified output directory(default: `./outputs`), organized by batch, and ready for further analysis or processing.
 
