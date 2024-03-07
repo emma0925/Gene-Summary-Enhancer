@@ -78,20 +78,23 @@ To initiate the Automated Data Extraction process, follow these steps:
 
 1. **Prepare the Gene ID List:** Use the output file generated from the 'Gene ID Input Cleaning' process as the input for this stage.
 
-2. **Adjust the batch size, job email recipient, output_directory as you needed
-    In line 6 of the `submit_all_batch.sh`
-    ```
-    BATCH_SIZE=2500 # Changed the number to the number of genes you want to have in each batch
-    ```
-    Note: it takes around 20 hours to access the endpoint for 5000 genes
+2. **Adjustions:** the batch size, job email recipient, output_directory
 
-    In line 29 of the `submit_all_batch.sh`, change the email address for getting the job status
+    In line 29 of the `submit_all_batch.sh`, change the email address for getting the job status(**Highly Recommended**)
     ```
     echo "#SBATCH --mail-user=<your_email>" >> "$sbatch_file" # Replace <your_email>
     ```
     You can remove this line if you don't want to get email of the job status.
 
-    OPTIONAL: If you want to change the output directory you can do the following
+    Below are **optiaonal:**
+   
+    If you want to change the batch size, it is in line 6 of the `submit_all_batch.sh`
+    ```
+    BATCH_SIZE=2500 # Changed the number to the number of genes you want to have in each batch
+    ```
+    Note: it takes around 20 hours to access the endpoint for 5000 genes
+
+    If you want to change the output directory you can change line 8-15 of the `submit_all_batch.sh`
     ```
     OUTPUT_DIR="./outputs" # change line 10 if you changed here
 
@@ -102,7 +105,7 @@ To initiate the Automated Data Extraction process, follow these steps:
     split -l $BATCH_SIZE "$GENE_ID_FILE" ./gene_ids/batch_ # ./gene_ids/batch_ is the default folder where the divided gene_ids txt file will be
     ```
 
-3. **Run the Shell Script:** Execute the `batch_data_retrieval.sh` script. This will split the gene ID list into batches, create sbatch scripts for each batch, and submit them for processing.
+4. **Run the Shell Script:** Execute the `batch_data_retrieval.sh` script. This will split the gene ID list into batches, create sbatch scripts for each batch, and submit them for processing.
 
     ```bash
     ./submit_all_batch.sh
