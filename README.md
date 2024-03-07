@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Features
 
-### Gene ID Input Cleaning:
+### 1. Gene ID Input Cleaning:
 Cleans a table of gene IDs that contains TAIR_OBJECT_ID to a gene id only txt files that does not contain any duplicates.
 #### Process Overview
 
@@ -55,9 +55,9 @@ python3 clean_raw.py
 ```
 The cleaned gene_id list will be in the output_file_path that you modified. If you didn't miodify it, it will be in the current directory and name as "test_raw.txt".
 
-**Automated Data Extraction:** Utilizes Connectome endpoints to automatically retrieve detailed notes and publication information for specified genes that is suitable for compute canada environment.
+### 2. Automated Data Extraction:** Utilizes Connectome endpoints to automatically retrieve detailed notes and publication information for specified genes that is suitable for compute canada environment.
 
-### Process Overview
+#### Process Overview
 
 1. **Batch Processing:** Gene IDs are divided into manageable batches to optimize the data retrieval process. This approach ensures that the extraction process is not too long (takes approximately 20 hour to process 5000 genes ID) and multiple gene_id outputs can be extracted at the same time. (Compute canda has multiple IP address, this can help to avoid IP ban)
    
@@ -65,13 +65,13 @@ The cleaned gene_id list will be in the output_file_path that you modified. If y
 
 3. **Data Retrieval and Handling:** Detailed notes and publication information for each gene ID are fetched using a custom Python script. This script handles API communication, response validation, and data storage, ensuring that the extracted data is accurate and ready for subsequent processing.
 
-### Script Functions
+#### Script Functions
 
 - **Shell Script (`submit_all_batch.sh`):** Divides all gene IDs into different batches and prepares sbatch scripts for submission to Compute Canada's scheduling system. This script automates the setup for parallel data extraction, including the creation of necessary directories for organized storage of outputs.
 
 - **Python Script (`generate_connectome_output.py`):** Fetches data for each gene ID by making requests to the Connectome API, processes the response to ensure data integrity, and saves the results in a structured JSON format. The script is designed to handle API rate limits gracefully and includes error handling to manage any issues that may arise during data retrieval.
 
-### Execution
+#### Execution
 
 To initiate the Automated Data Extraction process, follow these steps:
 
