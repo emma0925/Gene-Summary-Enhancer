@@ -25,8 +25,9 @@ pip install -r requirements.txt
 
 ## Features
 
-**Gene ID Input Cleaning:** Cleans a table of gene IDs that contains TAIR_OBJECT_ID to a gene id only txt files that does not contain any duplicates.
-### Process Overview
+### Gene ID Input Cleaning:
+Cleans a table of gene IDs that contains TAIR_OBJECT_ID to a gene id only txt files that does not contain any duplicates.
+#### Process Overview
 
 1. **Extraction of Gene IDs:** Initially, the process begins by reading through a raw input file to extract gene IDs of interest. This is achieved by identifying and isolating the precise parts of the data that correspond to gene IDs, while disregarding extraneous information.
 
@@ -34,7 +35,7 @@ pip install -r requirements.txt
 
 3. **Deduplication:** Finally, the process eliminates any duplicates within the extracted list of gene IDs. This step is crucial to maintain the integrity of the dataset, ensuring that each gene ID is represented uniquely.
 
-### Script Functions
+#### Script Functions
 
 - `extract_and_save_ids(input_file, output_file)`: Parses the raw input file to extract gene IDs and saves them to an output file. This function specifically targets IDs following a standard format with version numbers.
 
@@ -42,7 +43,7 @@ pip install -r requirements.txt
 
 - `remove_duplicates(input_file, output_file)`: Scans the list of gene IDs for duplicates and retains only unique entries, thereby cleansing the dataset of any redundancies.
 
-### Execution
+#### Execution
 To run it, you might need to modify the file path in line 44 and 45 in clean_raw.py
 ```
 input_file_path = 'raw_genes_id.txt' # Change it to your path of raw genes_id
