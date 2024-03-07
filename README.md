@@ -19,7 +19,7 @@ cd connectome-gene-summary-enhancer
 
 # Install the required dependencies
 pip install -r requirements.txt
-
+```
 ## Prerequisites  (Draft)
 
 List the software requirements and any other initial setup steps.
