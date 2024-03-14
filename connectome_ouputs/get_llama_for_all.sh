@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # Configuration
+SLURM_TMPDIR='/home/emma0925/scratch/llama' # The dir for the virtual env, MUST CHANGE THIS
+
 SCRIPT="./generate_llama_summary.py"  # Update this path to your Python script
-INPUT_DIR="/home/emma0925/scratch/new_llama/codellama/get_connectome/outputs" # The directory that you saved the connectome outputs
-EXEMPT_DIR="./llama_outputs/exempt_genes" # the place you want to save the exempt_genes
+INPUT_DIR="../outputs" # The directory that you saved the connectome outputs
+OUTPUT_DIR="../outputs/slurm_out_fils" # The directory that you want to save your slurm-.out file
+EXEMPT_DIR="../outputs/exempt_genes" # the place you want to save the exempt_genes
+
 
 # Make sure exempt directory exists
 mkdir -p "$EXEMPT_DIR"
-
 
 # Loop through each batch folder in OUTPUT_DIR
 for batch_folder in "$INPUT_DIR"/batch_*; do
@@ -26,10 +29,10 @@ for batch_folder in "$INPUT_DIR"/batch_*; do
         echo "#SBATCH --mem=125G" >> "$sbatch_file"
         echo "#SBATCH --mail-user=jianyun.zhuang@mail.utoronto.ca" >> "$sbatch_file"
         echo "#SBATCH --mail-type=ALL" >> "$sbatch_file"
-        echo "#SBATCH --output ${batch_folder}/slurm-llama-${batch_name}.out"  >> "$sbatch_file"
+        echo "#SBATCH --output ${OUTPUT_DIR}/slurm-llama-${batch_name}-%A_%a.out"  >> "$sbatch_file" # %A_%a is the job_id 
         echo "" >> "$sbatch_file"
         echo "module load python/3.6" >> "$sbatch_file"
-        echo "SLURM_TMPDIR='/home/emma0925/scratch/llama'" >> "$sbatch_file"
+        echo "SLURM_TMPDIR=${SLURM_TMPDIR}" >> "$sbatch_file" # need to change to the correct PATH
         echo "virtualenv --no-download \$SLURM_TMPDIR/env" >> "$sbatch_file"
         echo "source \$SLURM_TMPDIR/env/bin/activate" >> "$sbatch_file"
         echo "" >> "$sbatch_file"
@@ -42,8 +45,8 @@ for batch_folder in "$INPUT_DIR"/batch_*; do
         echo "module load PyTorch/1.13.1" >> "$sbatch_file" 
         echo "" >> "$sbatch_file"
         echo "torchrun --nproc_per_node 2 $SCRIPT $input_file $exempt_file_path \\" >> "$sbatch_file"
-        echo "    --ckpt_dir /home/emma0925/scratch/new_llama/codellama/CodeLlama-13b-Instruct/ \\" >> "$sbatch_file" #you need to change the file path
-        echo "    --tokenizer_path /home/emma0925/scratch/new_llama/codellama/CodeLlama-13b-Instruct/tokenizer.model \\" >> "$sbatch_file"  #you need to change the file path
+        echo "    --ckpt_dir ../codellama/CodeLlama-13b-Instruct/ \\" >> "$sbatch_file" # You might need to change this part
+        echo "    --tokenizer_path ../codellama/CodeLlama-13b-Instruct/tokenizer.model \\" >> "$sbatch_file"  # You might need to change this part
         echo "    --max_seq_len 6000 --max_batch_size 4" >> "$sbatch_file"
 
         # Make the sbatch script executable
