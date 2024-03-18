@@ -26,7 +26,13 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    # Install the required dependencies
    pip install -r requirements.txt
    ```
-## Prerequisites  (Draft)
+## Examples
+
+Input Text Summary from Connectome:
+"text_summary": "MEKK2 INTERACTS WITH CRCK3 (32165446). MEKK2 DEPENDS ON CRCK3 (32165446). MEKK2 STRUCTURALLY REGULATES CRCK3 (32165446). CRCK3 ENHANCES MEKK2-INDUCED CELL DEATH (32165446). CRCK3 DEPENDS ON SUMM2 (32165446). MDS1 RELATED TO CRCK3 (32497412). MDS1 PHOSPHORYLATES CRCK3 (32497412). SUMM2 MAINTAINS CRCK3 (32497412).",
+
+Outout from llama:
+"The gene AT2G11520, also known as MEKK2, interacts with CRCK3, a protein that is essential for cell death and is involved in various cellular processes, including cell signaling and protein synthesis. MEKK2 depends on CRCK3 for its proper functioning, and CRCK3 regulates MEKK2's structural properties. CRCK3 enhances MEKK2-induced cell death, and it is also dependent on SUMM2, a protein that is involved in various cellular processes, including cell signaling and protein synthesis. MDS1, a protein that is related to CRCK3, phosphorylates CRCK3, and SUMM2 maintains CRCK3. These findings suggest that CRCK3 plays a crucial role in regulating MEKK2 and its function in cell death."
 
 
 ## Features
