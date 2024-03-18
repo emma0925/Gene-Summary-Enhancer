@@ -16,16 +16,16 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    ```
 3. Follow the instruction for llama 2, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the codellama 17b mode
 4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py`
-```bash
-# Clone the repository
-git clone [repository-url]
-
-# Navigate to the project directory
-cd connectome-gene-summary-enhancer
-
-# Install the required dependencies
-pip install -r requirements.txt
-```
+   ```bash
+   # Clone the repository
+   git clone [[repository-url]](https://github.com/emma0925/Gene-Summary-Enhancer.git)
+   
+   # Navigate to the project directory
+   cd connectome-gene-summary-enhancer
+   
+   # Install the required dependencies
+   pip install -r requirements.txt
+   ```
 ## Prerequisites  (Draft)
 
 
