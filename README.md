@@ -9,7 +9,13 @@ The Connectome Gene Summary Enhancer is a specialized tool aimed at transforming
 The aim of this project is to enhance the comprehension and accessibility of genetic research data by converting the technical and note-formatted output from the Connectome database into reader-friendly paragraphs. These transformed summaries are intended to support the General Agricultural Intelligent Agent (GAIA) platform at the University of Toronto, facilitating the integration of complex genetic information into GAIA's agricultural and biological sciences knowledge base.
 
 ## Installation (Draft)
-
+1. Sign in to your cedar.computecanada.ca account
+2. clone the github repo for llama2
+   ```
+   git clone https://github.com/meta-llama/llama
+   ```
+3. Follow the instruction for llama 2, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the codellama 17b mode
+4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py`
 ```bash
 # Clone the repository
 git clone [repository-url]
