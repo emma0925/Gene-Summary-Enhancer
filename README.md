@@ -18,7 +18,7 @@ The aim of this project is to enhance the comprehension and accessibility of gen
 4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py`
    ```bash
    # Clone the repository
-   git clone [[repository-url]](https://github.com/emma0925/Gene-Summary-Enhancer.git)
+   git clone https://github.com/emma0925/Gene-Summary-Enhancer.git
    
    # Navigate to the project directory
    cd connectome-gene-summary-enhancer
