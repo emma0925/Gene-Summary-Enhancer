@@ -20,8 +20,8 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    # Clone the repository
    git clone https://github.com/emma0925/Gene-Summary-Enhancer.git
    
-   # Navigate to the project directory
-   cd connectome-gene-summary-enhancer
+   # Navigate to the project's scripts directory
+   cd Gene-Symmary-Enhancer/scripts
    ```
 ## Example Use Case
 
