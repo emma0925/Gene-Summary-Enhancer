@@ -23,12 +23,12 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    # Navigate to the project directory
    cd connectome-gene-summary-enhancer
    ```
-## Examples
+## Example Use Case
 
-Input Text Summary from Connectome:
+**Input Text Summary from Connectome:**
 "text_summary": "MEKK2 INTERACTS WITH CRCK3 (32165446). MEKK2 DEPENDS ON CRCK3 (32165446). MEKK2 STRUCTURALLY REGULATES CRCK3 (32165446). CRCK3 ENHANCES MEKK2-INDUCED CELL DEATH (32165446). CRCK3 DEPENDS ON SUMM2 (32165446). MDS1 RELATED TO CRCK3 (32497412). MDS1 PHOSPHORYLATES CRCK3 (32497412). SUMM2 MAINTAINS CRCK3 (32497412).",
 
-Outout from llama:
+**Outout from llama:**
 "The gene AT2G11520, also known as MEKK2, interacts with CRCK3, a protein that is essential for cell death and is involved in various cellular processes, including cell signaling and protein synthesis. MEKK2 depends on CRCK3 for its proper functioning, and CRCK3 regulates MEKK2's structural properties. CRCK3 enhances MEKK2-induced cell death, and it is also dependent on SUMM2, a protein that is involved in various cellular processes, including cell signaling and protein synthesis. MDS1, a protein that is related to CRCK3, phosphorylates CRCK3, and SUMM2 maintains CRCK3. These findings suggest that CRCK3 plays a crucial role in regulating MEKK2 and its function in cell death."
 
 
@@ -81,6 +81,10 @@ Utilizes Connectome endpoints to automatically retrieve detailed notes and publi
 
 - **Python Script (`generate_connectome_output.py`):** Fetches data for each gene ID by making requests to the Connectome API, processes the response to ensure data integrity, and saves the results in a structured JSON format. The script is designed to handle API rate limits gracefully and includes error handling to manage any issues that may arise during data retrieval.
 
+### Configuration and Usage
+
+Users must update certain paths in the `submit_all_batch.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
+
 #### Execution
 
 To initiate the Automated Data Extraction process, follow these steps:
@@ -123,5 +127,54 @@ To initiate the Automated Data Extraction process, follow these steps:
 3. **Monitor the Process:** Once submitted, the jobs will run independently on Compute Canada. The script outputs and data retrieval status can be monitored through Compute Canada's job management tools.
 
 4. **Data Collection:** Upon completion, the extracted data will be available in the specified output directory(default: `./outputs`), organized by batch, and ready for further analysis or processing.
-### 3. LLama2 Switching notes to Paragraph tool
+## 3. Summary Generation Process
+
+### Overview
+
+Following data extraction, the script employs Llama2 to transform the dense connectome notes into coherent and comprehensive paragraphs. This process involves two key components:
+
+- **Python Script (`generate_llama_summary.py`):** Reads the JSON-formatted connectome outputs, utilizes Llama2 to generate readable summaries for each gene, and exempts genes with summaries that are too long, potentially causing memory issues.
+
+- **Shell Script (`get_llama_for_all.sh`):** Facilitates batch processing of connectome output directories, generating sbatch scripts for submission to Compute Canada's SLURM job scheduling system. This ensures efficient processing of each batch on the cluster.
+
+### Configuration and Usage
+
+Users must update certain paths in the `get_llama_for_all.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
+
+## Execution
+
+To initiate the Summary Generation Process, follow these steps:
+
+1. **Prepare the Connectome Output Files**: Ensure that the connectome output files are in JSON format and the path of the directory is the same as the **Input Directory** variable (line 7) in the `get_llama_for_all.sh`. These files should be the result of the Automated Data Extraction process.
+
+2. **Adjustments**:
+   - **Job Email Recipient**: To receive job status notifications via email, find and modify the following line in your sbatch script template within `get_llama_for_all.sh`:
+     ```bash
+     echo "#SBATCH --mail-user=<your_email>" >> "$sbatch_file" # Replace <your_email> with your actual email address
+     ```
+     You may remove or comment out this line if you do not wish to receive email notifications.
+
+   - **Output Directory**: If you want to change the directory where the slurm output files are saved, adjust the following line in `get_llama_for_all.sh`:
+     ```bash
+     OUTPUT_DIR="../outputs/slurm_out_files" # Example: Change this to your desired output directory path
+     ```
+
+3. **Run the Shell Script**:
+   Execute the `get_llama_for_all.sh` script to start processing. This will:
+   - Check for the existence of the exempt directory and create it if missing.
+   - Loop through each batch of connectome outputs.
+   - Create an sbatch script for each batch. These sbatch script will be using the `generate_llama_summary.py`
+   - Submit each sbatch script for processing on Compute Canada.
+
+   ```bash
+   ./get_llama_for_all.sh
+
+## Acknowledgements
+
+This repository was created by Jian Yun Zhuang (@emma0925), under the supervision of Professor Nicholas Provart and with guidance from Vincent Lau at the University of Toronto. The project benefits from their extensive knowledge, support, and insights in the field of bioinformatics and computer science. 
+
+Special thanks are extended to Professor Marek Mutwil and his team at the Plants Systems Biology and Evolution Lab, Nanyang Technological University, for their development of the Plant Connectome endpoint. Their contributions to plant systems biology significantly enhance the capabilities of this tool by providing comprehensive data access and facilitating advanced gene analysis.
+
+We are grateful for the contributions and mentorship from all parties involved throughout the development of this tool.
+
 
