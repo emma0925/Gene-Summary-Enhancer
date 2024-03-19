@@ -55,8 +55,8 @@ Cleans a table of gene IDs that contains TAIR_OBJECT_ID to a gene id only txt fi
 #### Execution
 To run it, you might need to modify the file path in line 44 and 45 in clean_raw.py
 ```
-input_file_path = 'raw_genes_id.txt' # Change it to your path of raw genes_id
-output_file_path = 'test_raw.txt'    # The output file name as you like
+input_file_path = '../gene_ids/raw_genes_id.txt' # Change it to your path of raw genes_id if needed
+output_file_path = '../gene_ids/gene_ids_full.txt' # The output file name as you like
 ```
 Then, you can run
 ```
@@ -81,7 +81,7 @@ Utilizes Connectome endpoints to automatically retrieve detailed notes and publi
 
 - **Python Script (`generate_connectome_output.py`):** Fetches data for each gene ID by making requests to the Connectome API, processes the response to ensure data integrity, and saves the results in a structured JSON format. The script is designed to handle API rate limits gracefully and includes error handling to manage any issues that may arise during data retrieval.
 
-### Configuration and Usage
+#### Configuration and Usage
 
 Users must update certain paths in the `submit_all_batch.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
 
@@ -127,9 +127,9 @@ To initiate the Automated Data Extraction process, follow these steps:
 3. **Monitor the Process:** Once submitted, the jobs will run independently on Compute Canada. The script outputs and data retrieval status can be monitored through Compute Canada's job management tools.
 
 4. **Data Collection:** Upon completion, the extracted data will be available in the specified output directory(default: `./outputs`), organized by batch, and ready for further analysis or processing.
-## 3. Summary Generation Process
+### 3. Summary Generation Process
 
-### Overview
+#### Overview
 
 Following data extraction, the script employs Llama2 to transform the dense connectome notes into coherent and comprehensive paragraphs. This process involves two key components:
 
@@ -137,11 +137,11 @@ Following data extraction, the script employs Llama2 to transform the dense conn
 
 - **Shell Script (`get_llama_for_all.sh`):** Facilitates batch processing of connectome output directories, generating sbatch scripts for submission to Compute Canada's SLURM job scheduling system. This ensures efficient processing of each batch on the cluster.
 
-### Configuration and Usage
+#### Configuration and Usage
 
 Users must update certain paths in the `get_llama_for_all.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
 
-## Execution
+#### Execution
 
 To initiate the Summary Generation Process, follow these steps:
 
