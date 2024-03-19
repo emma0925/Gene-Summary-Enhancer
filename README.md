@@ -14,7 +14,7 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    ```
    git clone https://github.com/meta-llama/llama
    ```
-3. Follow the instruction for llama 2, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the codellama 17b mode
+3. Follow the instruction for llama 2, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the **codellama 17b mode**
 4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py`
    ```bash
    # Clone the repository
@@ -22,9 +22,6 @@ The aim of this project is to enhance the comprehension and accessibility of gen
    
    # Navigate to the project directory
    cd connectome-gene-summary-enhancer
-   
-   # Install the required dependencies
-   pip install -r requirements.txt
    ```
 ## Examples
 
