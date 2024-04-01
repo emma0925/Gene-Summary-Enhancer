@@ -32,7 +32,7 @@ The aim of this project is to enhance the comprehension and accessibility of gen
 The gene AT2G13560, also known as NAD-ME1, plays a crucial role in plant metabolism. Studies have shown that NAD-ME1 localizes to the metabolic pathway II.15 QTL (PubMed ID: 33523525) and interacts with the circadian cis-element binding site (PubMed ID: 33523525). NAD-ME1 enhances the production of tricarboxylic acid cycle intermediates (PubMed ID: 33523525) and represses the expression of genes involved in the glycolysis and starch synthesis pathways (PubMed ID: 33523525). Additionally, NAD-ME1 produces primary and secondary metabolites, such as flavonoids and phenolic acids, which are important for plant defense and stress responses (PubMed ID: 33523525). Overall, the function of NAD-ME1 in plant metabolism is to regulate the balance between different metabolic pathways and to produce metabolites that are essential for plant growth and development.
 
 ## Final Prompt
-'''
+```
                     mini_ins = []
                     pro = "Please convert the following notes about the gene " + gene_id + " into a more readable and comprehensive paragraph like the given example. Remember to include all numbers in the brackets, as these PubMed IDs are essential for referencing the studies. Also include all given details. Here are the notes: " + text_summary
                     mini_dict = {"role": "user",}
@@ -48,7 +48,7 @@ The gene AT2G13560, also known as NAD-ME1, plays a crucial role in plant metabol
                                 })
                     mini_ins.append(mini_dict)
                     instruction.append(mini_ins)
-'''
+```
 
 ## Features
 
