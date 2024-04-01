@@ -32,23 +32,23 @@ The aim of this project is to enhance the comprehension and accessibility of gen
 The gene AT2G13560, also known as NAD-ME1, plays a crucial role in plant metabolism. Studies have shown that NAD-ME1 localizes to the metabolic pathway II.15 QTL (PubMed ID: 33523525) and interacts with the circadian cis-element binding site (PubMed ID: 33523525). NAD-ME1 enhances the production of tricarboxylic acid cycle intermediates (PubMed ID: 33523525) and represses the expression of genes involved in the glycolysis and starch synthesis pathways (PubMed ID: 33523525). Additionally, NAD-ME1 produces primary and secondary metabolites, such as flavonoids and phenolic acids, which are important for plant defense and stress responses (PubMed ID: 33523525). Overall, the function of NAD-ME1 in plant metabolism is to regulate the balance between different metabolic pathways and to produce metabolites that are essential for plant growth and development.
 
 ## Final Prompt
-```
-                    mini_ins = []
-                    pro = "Please convert the following notes about the gene " + gene_id + " into a more readable and comprehensive paragraph like the given example. Remember to include all numbers in the brackets, as these PubMed IDs are essential for referencing the studies. Also include all given details. Here are the notes: " + text_summary
-                    mini_dict = {"role": "user",}
-                    mini_dict["content"] = pro
-                    mini_ins.append({
-                                "role": "user",
-                                "content": "Please convert the following notes about the gene ABI3 into a coherent, comprehensive and readable paragraph. It's crucial to include the PubMed IDs, which are the numbers in the brackets, within the paragraph. These IDs provide essential references and should not be omitted. For example, you can mention studies or findings followed by their respective PubMed ID. Here are the notes: ABI3 MAINTAINS EMBRYO DEVELOPMENT (10743655), SSP ACCUMULATION (15695450), AT2S3 (15695463), CRC (15695463), PLANT EMBRYO DEVELOPMENT (17158584), MIR159 (17217461), HSFA9 (17220197), ABA-INDUCED ARREST (18278579), STORAGE PROTEIN SYNTHESIS (18701524), WRKY2 (19622176), TWO MAJOR STAGES IN EMBRYO MATURATION (19659659), LEA PROTEINS (24043848), SEED DEVELOPMENT (24388521, 29475938), SEED MATURATION (24473899, 28346448, 35318532), PROTEIN RESERVES (25840088), ABA SIGNALING (26496910)."
-                                })
-                    mini_ins.append(
-                                {
-                                "role": "assistant",
-                                "content": "The gene ABI3 plays a pivotal role in maintaining embryo development, as evidenced by research documented in PubMed ID 10743655. It is also involved in the accumulation of SSP (PubMed ID 15695450) and influences various processes such as AT2S3 and CRC (PubMed IDs 15695463), plant embryo development (PubMed ID 17158584), and the regulation of MIR159 (PubMed ID 17217461). Further, ABI3 is integral to HSFA9 mechanisms (PubMed ID 17220197), ABA-induced arrest (PubMed ID 18278579), and storage protein synthesis (PubMed ID 18701524). It interacts with WRKY2 (PubMed ID 19622176) and is crucial in two major stages of embryo maturation (PubMed ID 19659659), LEA protein production (PubMed ID 24043848), and seed development (PubMed IDs 24388521, 29475938). The gene's role extends to seed maturation (PubMed IDs 24473899, 28346448, 35318532), protein reserve synthesis (PubMed ID 25840088), and ABA signaling pathways (PubMed ID 26496910)."
-                                })
-                    mini_ins.append(mini_dict)
-                    instruction.append(mini_ins)
-```
+'''
+mini_ins = []
+pro = "Please convert the following notes about the gene " + gene_id + " into a more readable and comprehensive paragraph like the given example. Remember to include all numbers in the brackets, as these PubMed IDs are essential for referencing the studies. Also include all given details. Here are the notes: " + text_summary
+mini_dict = {"role": "user",}
+mini_dict["content"] = pro
+mini_ins.append({
+"role": "user",
+"content": "Please convert the following notes about the gene ABI3 into a coherent, comprehensive and readable paragraph. It's crucial to include the PubMed IDs, which are the numbers in the brackets, within the paragraph. These IDs provide essential references and should not be omitted. For example, you can mention studies or findings followed by their respective PubMed ID. Here are the notes: ABI3 MAINTAINS EMBRYO DEVELOPMENT (10743655), SSP ACCUMULATION (15695450), AT2S3 (15695463), CRC (15695463), PLANT EMBRYO DEVELOPMENT (17158584), MIR159 (17217461), HSFA9 (17220197), ABA-INDUCED ARREST (18278579), STORAGE PROTEIN SYNTHESIS (18701524), WRKY2 (19622176), TWO MAJOR STAGES IN EMBRYO MATURATION (19659659), LEA PROTEINS (24043848), SEED DEVELOPMENT (24388521, 29475938), SEED MATURATION (24473899, 28346448, 35318532), PROTEIN RESERVES (25840088), ABA SIGNALING (26496910)."
+})
+mini_ins.append(
+{
+"role": "assistant",
+"content": "The gene ABI3 plays a pivotal role in maintaining embryo development, as evidenced by research documented in PubMed ID 10743655. It is also involved in the accumulation of SSP (PubMed ID 15695450) and influences various processes such as AT2S3 and CRC (PubMed IDs 15695463), plant embryo development (PubMed ID 17158584), and the regulation of MIR159 (PubMed ID 17217461). Further, ABI3 is integral to HSFA9 mechanisms (PubMed ID 17220197), ABA-induced arrest (PubMed ID 18278579), and storage protein synthesis (PubMed ID 18701524). It interacts with WRKY2 (PubMed ID 19622176) and is crucial in two major stages of embryo maturation (PubMed ID 19659659), LEA protein production (PubMed ID 24043848), and seed development (PubMed IDs 24388521, 29475938). The gene's role extends to seed maturation (PubMed IDs 24473899, 28346448, 35318532), protein reserve synthesis (PubMed ID 25840088), and ABA signaling pathways (PubMed ID 26496910)."
+})
+mini_ins.append(mini_dict)
+instruction.append(mini_ins)
+'''
 
 ## Features
 
