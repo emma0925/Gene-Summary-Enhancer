@@ -26,11 +26,9 @@ The aim of this project is to enhance the comprehension and accessibility of gen
 ## Example Use Case
 
 **Input Text Summary from Connectome:**
-"text_summary": "MEKK2 INTERACTS WITH CRCK3 (32165446). MEKK2 DEPENDS ON CRCK3 (32165446). MEKK2 STRUCTURALLY REGULATES CRCK3 (32165446). CRCK3 ENHANCES MEKK2-INDUCED CELL DEATH (32165446). CRCK3 DEPENDS ON SUMM2 (32165446). MDS1 RELATED TO CRCK3 (32497412). MDS1 PHOSPHORYLATES CRCK3 (32497412). SUMM2 MAINTAINS CRCK3 (32497412).",
-
+"text_summary": "NAD-ME1 AFFECTS PLANT METABOLISM (33523525). NAD-ME1 LOCALIZES TO MET.II.15 QTL (33523525). NAD-ME1 INTERACTS WITH CIRCADIAN CIS-ELEMENT BINDING SITE (33523525). NAD-ME1 ENHANCES TRICARBOXYLIC ACID CYCLE INTERMEDIATES (33523525). NAD-ME1 REPRESSES GSL BIOSYNTHESIS PATHWAY GENES (33523525). NAD-ME1 PRODUCES PRIMARY AND SECONDARY METABOLITES (33523525)."
 **Outout from llama:**
-"The gene AT2G11520, also known as MEKK2, interacts with CRCK3, a protein that is essential for cell death and is involved in various cellular processes, including cell signaling and protein synthesis. MEKK2 depends on CRCK3 for its proper functioning, and CRCK3 regulates MEKK2's structural properties. CRCK3 enhances MEKK2-induced cell death, and it is also dependent on SUMM2, a protein that is involved in various cellular processes, including cell signaling and protein synthesis. MDS1, a protein that is related to CRCK3, phosphorylates CRCK3, and SUMM2 maintains CRCK3. These findings suggest that CRCK3 plays a crucial role in regulating MEKK2 and its function in cell death."
-
+The gene AT2G13560, also known as NAD-ME1, plays a crucial role in plant metabolism. Studies have shown that NAD-ME1 localizes to the metabolic pathway II.15 QTL (PubMed ID: 33523525) and interacts with the circadian cis-element binding site (PubMed ID: 33523525). NAD-ME1 enhances the production of tricarboxylic acid cycle intermediates (PubMed ID: 33523525) and represses the expression of genes involved in the glycolysis and starch synthesis pathways (PubMed ID: 33523525). Additionally, NAD-ME1 produces primary and secondary metabolites, such as flavonoids and phenolic acids, which are important for plant defense and stress responses (PubMed ID: 33523525). Overall, the function of NAD-ME1 in plant metabolism is to regulate the balance between different metabolic pathways and to produce metabolites that are essential for plant growth and development.
 
 ## Features
 
