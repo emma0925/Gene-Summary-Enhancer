@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Connectome Gene Summary Enhancer is a specialized tool aimed at transforming the dense and note-like outputs from the Connectome database into coherent, easily readable paragraphs. Connectome's data, rich with genetic insights and findings from pubmed, often comes in a format that's challenging for quick consumption, as shown in gene-specific notes filled with technical details and references. By inputting gene IDs, this tool extracts these complex summaries and employs natural lanaguage processing, facilitated by Facebook's Llama 2, to restructure and refine the information into a narrative that's more accessible to researchers.
+The Connectome Gene Summary Enhancer is a specialized tool aimed at transforming the dense and note-like outputs from the Connectome database into coherent, easily readable paragraphs. Connectome's data, rich with genetic insights and findings from pubmed, often comes in a format that's challenging for quick consumption, as shown in gene-specific notes filled with technical details and references. By inputting gene IDs, this tool extracts these complex summaries and employs natural lanaguage processing, facilitated by Facebook's Llama 2, to restructure and refine the information into a narrative that's more accessible to researchers. 
 
 ## Objective
 
@@ -50,18 +50,25 @@ instruction.append(mini_ins)
    cd Gene-Symmary-Enhancer/scripts
    ```
 ## Overview on how to run?
-If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. 
-1. Clean Gene ids (Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`)
+Here is an overview of how the pipeline works
+![Alt text](./resources/overview.png)<br>
+If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. You can also run each stage separately. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. 
+Stage 1: Clean Gene ids<br>
+Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`. If you decide to run this step, please make sure the input_file path is correct.
 ```
 python3 clean_raw.py
 ```
-2. Extract from Plant Connectome: If first time run, you need to change the emails and the file path, details in Features section
+Stage 2: Extract from Plant Connectome<br>
+If first time run, you need to change the emails and the file path, details in Features section
 ```
 ./get_connectome_for_all.sh
 ```
-3. Summary Generation using llama (the script includes setting up a new virtual env and download all the dependency for llama)
+Stage 3: Summary Generation using llama (the script includes setting up a new virtual env and download all the dependency for llama)
 ```
 ./get_llama_for_all.sh
+```
+Stage 4: BERT Scoring
+```
 ```
 ## Features
 
