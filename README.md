@@ -52,18 +52,19 @@ instruction.append(mini_ins)
 ## Overview on how to run?
 Here is an overview of how the pipeline works
 ![Alt text](./resources/overview.png)<br>
-If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. You can also run each stage separately. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. 
-Stage 1: Clean Gene ids<br>
+If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. You can also run each stage separately. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. <br>
+**Stage 1: Clean Gene ids**<br>
 Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`. If you decide to run this step, please make sure the input_file path is correct.
 ```
 python3 clean_raw.py
 ```
-Stage 2: Extract from Plant Connectome<br>
+**Stage 2: Extract from Plant Connectome**<br>
 If first time run, you need to change the emails and the file path, details in Features section
 ```
 ./get_connectome_for_all.sh
 ```
-Stage 3: Summary Generation using llama (the script includes setting up a new virtual env and download all the dependency for llama)
+**Stage 3: Summary Generation using llama** 
+The shell script includes setting up a new virtual env and download all the dependency for llama, you will only need to have the codellama repo downloaded and run `download.sh` to get the `13b-Instruct model`, you will need to register to get a url. (see set up section - step 2 & 3)
 ```
 ./get_llama_for_all.sh
 ```
