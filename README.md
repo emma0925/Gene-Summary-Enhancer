@@ -54,7 +54,7 @@ Here is an overview of how the pipeline works
 ![Alt text](./resources/overview.png)<br>
 If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. You can also run each stage separately. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. <br>
 **Stage 1: Clean Gene ids**<br>
-Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`. If you decide to run this step, please make sure the input_file path is correct.
+Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`. If you decide to run this step, please make sure the input_file path is correct. The step can be runned locally, you don't need to do it on compute canada. It doesn't require a gpu.
 ```
 python3 clean_raw.py
 ```
@@ -68,8 +68,11 @@ The shell script includes setting up a new virtual env and download all the depe
 ```
 ./get_llama_for_all.sh
 ```
-Stage 4: BERT Scoring
-```
+**Assessment using BERT**
+The step can be runned locally, you don't need to do it on compute canada. Running locally will take around 2 days, if you run with a gpu on compute canada it will be much faster, but you will need to write a shell script.
+``
+cd BERT
+python3 score_llama.py
 ```
 ## Features
 
