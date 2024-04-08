@@ -8,21 +8,6 @@ The Connectome Gene Summary Enhancer is a specialized tool aimed at transforming
 
 The aim of this project is to enhance the comprehension and accessibility of genetic research data by converting the technical and note-formatted output from the Connectome database into reader-friendly paragraphs. These transformed summaries are intended to support the General Agricultural Intelligent Agent (GAIA) platform at the University of Toronto, facilitating the integration of complex genetic information into GAIA's agricultural and biological sciences knowledge base.
 
-## Set Up & Installation
-1. ssh to your **cedar.computecanada.ca** account
-2. clone the github repo for llama2-codellama
-   ```
-   git clone https://github.com/meta-llama/codellama.git
-   ```
-3. Follow the instruction for Codellama, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the **codellama 17b model**
-4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py`
-   ```bash
-   # Clone the repository
-   git clone https://github.com/emma0925/Gene-Summary-Enhancer.git
-   
-   # Navigate to the project's scripts directory
-   cd Gene-Symmary-Enhancer/scripts
-   ```
 ## Example Use Case
 
 **Input Text Summary from Connectome:**
@@ -49,7 +34,35 @@ mini_ins.append(
 mini_ins.append(mini_dict)
 instruction.append(mini_ins)
 ```
-
+## Set Up & Installation
+1. ssh to your **cedar.computecanada.ca** account
+2. clone the github repo for llama2-codellama
+   ```
+   git clone https://github.com/meta-llama/codellama.git
+   ```
+3. Follow the instruction for Codellama, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the **codellama 17b model**
+4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py` (You don't need to worry about the dependices for the llama model, the setup is already included in the script)
+   ```bash
+   # Clone the repository
+   git clone https://github.com/emma0925/Gene-Summary-Enhancer.git
+   
+   # Navigate to the project's scripts directory
+   cd Gene-Symmary-Enhancer/scripts
+   ```
+## Overview on how to run?
+If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. 
+1. Clean Gene ids (Most likely, you don't need to run this step, the cleaned gene list is saved in `gene_ids/gene_ids_full.txt`)
+```
+python3 clean_raw.py
+```
+2. Extract from Plant Connectome: If first time run, you need to change the emails and the file path, details in Features section
+```
+./get_connectome_for_all.sh
+```
+3. Summary Generation using llama (the script includes setting up a new virtual env and download all the dependency for llama)
+```
+./get_llama_for_all.sh
+```
 ## Features
 
 ### 1. Gene ID Input Cleaning:
@@ -187,6 +200,8 @@ To initiate the Summary Generation Process, follow these steps:
    ```bash
    ./get_llama_for_all.sh
 
+## Questions
+If you have any questions regarding this repo, feel free to email me through jianyun.zhuang@mail.utronto.ca. 
 ## License (To be determined)
 
 ## Acknowledgements
