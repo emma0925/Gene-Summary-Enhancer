@@ -70,7 +70,7 @@ The shell script includes setting up a new virtual env and download all the depe
 ```
 **Assessment using BERT**
 The step can be runned locally, you don't need to do it on compute canada. Running locally will take around 2 days, if you run with a gpu on compute canada it will be much faster, but you will need to write a shell script.
-``
+```
 cd bert
 python3 score_llama.py
 ```
