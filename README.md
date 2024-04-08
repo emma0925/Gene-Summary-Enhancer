@@ -40,7 +40,7 @@ instruction.append(mini_ins)
    ```
    git clone https://github.com/meta-llama/codellama.git
    ```
-3. Follow the instruction for Codellama, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the **codellama 13b model**
+3. Follow the instruction for Codellama, visit the Meta website https://llama.meta.com/llama-downloads/ and register to download the **codellama 13b-Instruct model**
 4. Clone this repo, move the scipt folder parallal to the `example_chat_completion.py` (You don't need to worry about the dependices for the llama model, the setup is already included in the script)
    ```bash
    # Clone the repository
