@@ -95,13 +95,13 @@ Utilizes Connectome endpoints to automatically retrieve detailed notes and publi
 
 #### Script Functions
 
-- **Shell Script (`submit_all_batch.sh`):** Divides all gene IDs into different batches and prepares sbatch scripts for submission to Compute Canada's scheduling system. This script automates the setup for parallel data extraction, including the creation of necessary directories for organized storage of outputs.
+- **Shell Script (`get_connectome_for_all.sh`):** Divides all gene IDs into different batches and prepares sbatch scripts for submission to Compute Canada's scheduling system. This script automates the setup for parallel data extraction, including the creation of necessary directories for organized storage of outputs.
 
 - **Python Script (`generate_connectome_output.py`):** Fetches data for each gene ID by making requests to the Connectome API, processes the response to ensure data integrity, and saves the results in a structured JSON format. The script is designed to handle API rate limits gracefully and includes error handling to manage any issues that may arise during data retrieval.
 
 #### Configuration and Usage
 
-Users must update certain paths in the `submit_all_batch.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
+Users must update certain paths in the `get_connectome_for_all.sh` script to match their environment and project structure, including directories for the virtual environment, input and output data, and the Python script path.
 
 #### Execution
 
@@ -111,7 +111,7 @@ To initiate the Automated Data Extraction process, follow these steps:
 
 2. **Adjustions:** the batch size, job email recipient, output_directory
 
-    In line 29 of the `submit_all_batch.sh`, change the email address for getting the job status (**Highly Recommended**)
+    In line 29 of the `get_connectome_for_all.sh`, change the email address for getting the job status (**Highly Recommended**)
     ```
     echo "#SBATCH --mail-user=<your_email>" >> "$sbatch_file" # Replace <your_email>
     ```
@@ -119,13 +119,13 @@ To initiate the Automated Data Extraction process, follow these steps:
 
     **Below are optiaonal:**
    
-    If you want to change the batch size, it is in line 6 of the `submit_all_batch.sh`
+    If you want to change the batch size, it is in line 6 of the `get_connectome_for_all.sh`
     ```
     BATCH_SIZE=2500 # Changed the number to the number of genes you want to have in each batch
     ```
     Note: it takes around 20 hours to access the endpoint for 5000 genes
 
-    If you want to change the output directory you can change line 8-15 of the `submit_all_batch.sh`
+    If you want to change the output directory you can change line 8-15 of the `get_connectome_for_all.sh`
     ```
     OUTPUT_DIR="./outputs" # change line 10 if you changed here
 
@@ -139,7 +139,7 @@ To initiate the Automated Data Extraction process, follow these steps:
 4. **Run the Shell Script:** Execute the `batch_data_retrieval.sh` script. This will split the gene ID list into batches, create sbatch scripts for each batch, and submit them for processing.
 
     ```bash
-    ./submit_all_batch.sh
+    ./get_connectome_for_all.sh
     ```
 
 3. **Monitor the Process:** Once submitted, the jobs will run independently on Compute Canada. The script outputs and data retrieval status can be monitored through Compute Canada's job management tools.
