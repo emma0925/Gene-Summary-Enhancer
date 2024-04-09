@@ -50,7 +50,7 @@ instruction.append(mini_ins)
    cd Gene-Symmary-Enhancer/scripts
    ```
 ## Overview on how to run?
-Here is an overview of how the pipeline works
+Here is an overview of how the pipeline works, and the result that I have got for the first iteration.
 ![Alt text](./resources/overview.png)<br>
 If you want to run from very begining (cleaning out the gene id) to generation the llama summary, forllow the following steps. You can also run each stage separately. Please make sure to change all the file path and email for sbatch job before running, for more details read through Features section. <br>
 **Stage 1: Clean Gene ids**<br>
