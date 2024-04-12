@@ -160,7 +160,7 @@ To initiate the Automated Data Extraction process, follow these steps:
     split -l $BATCH_SIZE "$GENE_ID_FILE" ./gene_ids/batch_ # ./gene_ids/batch_ is the default folder where the divided gene_ids txt file will be
     ```
 
-4. **Run the Shell Script:** Execute the `batch_data_retrieval.sh` script. This will split the gene ID list into batches, create sbatch scripts for each batch, and submit them for processing.
+4. **Run the Shell Script:** Execute the `get_connectome_for_all.sh` script. This will split the gene ID list into batches, create sbatch scripts for each batch, and submit them for processing.
 
     ```bash
     ./get_connectome_for_all.sh
