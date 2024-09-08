@@ -4,6 +4,8 @@
 
 The Connectome Gene Summary Enhancer is a specialized tool aimed at transforming the dense and note-like outputs from the Connectome database into coherent, easily readable paragraphs. Connectome's data, rich with genetic insights and findings from pubmed, often comes in a format that's challenging for quick consumption, as shown in gene-specific notes filled with technical details and references. By inputting gene IDs, this tool extracts these complex summaries and employs natural lanaguage processing, facilitated by Facebook's Llama 2, to restructure and refine the information into a narrative that's more accessible to researchers. 
 
+Link to my workshop presentation: https://provartlabundergrads.csb.utoronto.ca/emma-zhuangs-summative/
+
 ## Objective
 
 The aim of this project is to enhance the comprehension and accessibility of genetic research data by converting the technical and note-formatted output from the Connectome database into reader-friendly paragraphs. These transformed summaries are intended to support the General Agricultural Intelligent Agent (GAIA) platform at the University of Toronto, facilitating the integration of complex genetic information into GAIA's agricultural and biological sciences knowledge base.
